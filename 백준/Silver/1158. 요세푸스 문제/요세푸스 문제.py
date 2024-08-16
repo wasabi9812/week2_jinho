@@ -17,3 +17,6 @@ while len(queue)>0:
 
 
 print("<"+", ".join(map(str,result))+">")
+
+
+    
