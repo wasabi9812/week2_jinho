@@ -1,20 +1,22 @@
-import sys
-import heapq
-N = int(sys.stdin.readline().strip())
-minheap = []
+import sys, heapq
+
+input = sys.stdin.readline
+N = int(input())
+
+minq = []
 
 for i in range(N):
-    M = int(sys.stdin.readline().strip())
-    heapq.heappush(minheap,M)
+    m = int(input())
+    heapq.heappush(minq,m)
+    
+result =0
+    
+while len(minq)>1:
+    k1 = heapq.heappop(minq)
+    k2 = heapq.heappop(minq)
+    k3 = k1+k2
+    result += k3
+    heapq.heappush(minq,k3)
+    
 
-#누적
-heapsum = 0
-
-
-while len(minheap)>1:
-    q1 = heapq.heappop(minheap)
-    q2 = heapq.heappop(minheap)
-    q3 = q1+q2
-    heapsum +=q3
-    heapq.heappush(minheap, q3)
-print(heapsum)
+print(result)
